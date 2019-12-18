@@ -7,8 +7,8 @@ Work Sample for Product Aspect, Node.js Variant
 
 ### Setup and Run
 In project directory
-1. ## Have redis installed else `brew install redis`
-2. ## Setup process.env with Postgres credentials
-3. ## `npm install`
-4. ## `npm run dev`
-5. ## open localhost:5555 or make request to it
+1. #### Have redis installed else `brew install redis`
+2. #### Setup process.env with Postgres credentials
+3. #### `npm install`
+4. #### `npm run dev`
+5. #### open localhost:5555 or make request to it
