@@ -16,7 +16,7 @@ redisClient.on('error', () => {
 module.exports = (req,res,next) => {
     redisClient.exists(req.headers.user || "Nana", (err, response) => {
         if(err){
-            console.log("Redis is out........");
+            console.log("Redis is out........", err);
             system.exit(0);
         }
         if(response === 1){
