@@ -6,6 +6,13 @@ const moment = require('moment');
 
 const MAX_REQ = 1000;
 
+redisClient.on('connect', () => {
+    console.log("redis connected");   
+});
+redisClient.on('error', () => {
+    console.log("redis NOT connected");   
+});
+
 module.exports = (req,res,next) => {
     redisClient.exists(req.headers.user, (err, response) => {
         if(err){
