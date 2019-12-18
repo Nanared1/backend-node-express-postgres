@@ -4,7 +4,7 @@
   "description": "API work samples",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "concurrently \"redis-server\" \"nodemon index.js\"",
     "dev": "concurrently \"redis-server\" \"nodemon index.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
