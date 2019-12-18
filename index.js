@@ -4,8 +4,13 @@ require('dotenv').config();
 const app = express();
 const rateLimiter = require('./rateLimiter');
 
-// configs come from standard PostgreSQL env vars
-// https://www.postgresql.org/docs/9.6/static/libpq-envars.html
+/*
+  1. add rate limiter
+  2. setup user header for redis
+  3. setup process.env for database
+  4. connect to database with pg.pool
+  5. setup other endpoints to get data from postgres
+*/ 
 
 app.use(rateLimiter);
 app.use((req, res, next) => {

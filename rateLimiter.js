@@ -4,9 +4,12 @@ const redisURL = url.parse(process.env.REDISCLOUD_URL);
 const redisClient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
 const moment = require('moment');
 
-const MAX_REQ = 1000;
-
-console.log(redisURL)
+/* 
+    1. Connect client to redis, if error, exit
+    2. Check if user is registered. If user doesn't exist, exit
+    3. If user exists, check number of requests in the last minute
+    4. Decline request if MAX request is passed
+*/ 
 
 redisClient.on('connect', () => {
     console.log("redis connected");   
@@ -16,11 +19,10 @@ redisClient.on('error', () => {
 });
 
 module.exports = (req,res,next) => {
-    redisClient.exists(req.headers.user || "Nana", (err, response) => {
+    redisClient.exists(req.headers.user, (err, response) => {
         if(err){
             console.log("Redis is out........", err);
-            next();
-            return;
+            process.exit(0)
         }
         if(response === 1){
             redisClient.get(req.headers.user, (err, response) => {
