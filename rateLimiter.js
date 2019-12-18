@@ -4,6 +4,7 @@ const redisURL = url.parse(process.env.REDISCLOUD_URL);
 const redisClient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
 const moment = require('moment');
 
+const MAX_REQ = 1000;
 /* 
     1. Connect client to redis, if error, exit
     2. Check if user is registered. If user doesn't exist, exit

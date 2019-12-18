@@ -5,7 +5,7 @@ const app = express();
 const rateLimiter = require('./rateLimiter');
 
 /*
-  1. add rate limiter
+  1. use rate limiter
   2. setup user header for redis
   3. setup process.env for database
   4. connect to database with pg.pool
