@@ -6,6 +6,8 @@ const moment = require('moment');
 
 const MAX_REQ = 1000;
 
+console.log(redisURL)
+
 redisClient.on('connect', () => {
     console.log("redis connected");   
 });
