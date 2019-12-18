@@ -1,5 +1,7 @@
 const redis = require('redis');
-const redisClient = redis.createClient();
+const url = require('url');
+const redisURL = url.parse(process.env.REDISCLOUD_URL);
+const redisClient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
 const moment = require('moment');
 
 const MAX_REQ = 1000;

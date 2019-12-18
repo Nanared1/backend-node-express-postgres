@@ -4,7 +4,7 @@
   "description": "API work samples",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"redis-server\" \"nodemon index.js\"",
+    "start": "concurrently \"redis-server\" \"node index.js\"",
     "dev": "concurrently \"redis-server\" \"nodemon index.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,7 +24,8 @@
     "express": "^4.15.3",
     "moment": "^2.24.0",
     "pg": "^6.2.4",
-    "redis": "^2.8.0"
+    "redis": "^2.8.0",
+    "url": "^0.11.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
