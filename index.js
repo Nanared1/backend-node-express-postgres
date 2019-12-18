@@ -2,12 +2,12 @@ const express = require('express')
 const pg = require('pg')
 require('dotenv').config();
 const app = express();
-const rateLimiter = require('./rateLimiter');
+// const rateLimiter = require('./rateLimiter');
 
 // configs come from standard PostgreSQL env vars
 // https://www.postgresql.org/docs/9.6/static/libpq-envars.html
 
-app.use(rateLimiter);
+// app.use(rateLimiter);
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('user', 'Nana');
